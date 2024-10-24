@@ -15,17 +15,19 @@ phases:
 
   build:
     commands:
-      - echo Running tests...
-      - pytest --junitxml=report.xml
+      - echo Running tests with coverage...
+      - coverage run -m pytest
+      - coverage report --fail-under=70
+      - coverage xml -o coverage.xml
 
   post_build:
     commands:
-      - echo Build completed successfully.
+      - echo Build and tests completed successfully.
 artifacts:
   files:
     - '**/*'
   discard-paths: yes
 reports:
-  pytest_reports:
+  coverage_reports:
     files:
-      - report.xml
+      - coverage.xml
