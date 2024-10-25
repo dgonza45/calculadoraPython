@@ -5,28 +5,34 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
+      - python -m venv venv  # Crea un entorno virtual
+      - source venv/bin/activate  # Activa el entorno virtual
       - pip install --upgrade pip
       - pip install -r requirements.txt
 
   pre_build:
     commands:
-      - echo Installing dependencies...
+      - echo "Installing dependencies..."
+      - source venv/bin/activate  # Activa el entorno virtual en la fase pre_build
       - pip install -r requirements.txt
 
   build:
     commands:
-      - echo Running tests with coverage...
+      - echo "Running tests with coverage..."
+      - source venv/bin/activate  # Activa el entorno virtual en la fase build
       - coverage run -m pytest tests/
       - coverage report --fail-under=70
       - coverage xml -o coverage.xml
 
   post_build:
     commands:
-      - echo Build and tests completed successfully.
+      - echo "Build and tests completed successfully."
+
 artifacts:
   files:
     - '**/*'
   discard-paths: yes
+
 reports:
   coverage_reports:
     files:
