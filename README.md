@@ -1,4 +1,5 @@
 # Proyecto CI/CD
+## Daniel Gonzalez Bernal - Magda C Rodriguez
 
 ## URLs de Entorno
 
