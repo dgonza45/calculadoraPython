@@ -6,7 +6,7 @@ calculadora = Calculadora()
 
 @app.route('/')
 def index():
-    return "Bienvenido! Esta aplicación ayuda a elevar números cualquiera a sus potencias."
+    return "EXPOOOOO ta aplicación ayuda a elevar números cualquiera a sus potencias."
 
 @app.route('/hola')
 def hola():
