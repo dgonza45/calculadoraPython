@@ -32,7 +32,9 @@ phases:
 artifacts:
   files:
     - '**/*'
+    - coverage.xml  # Incluye el archivo de cobertura en los artefactos descargables
   discard-paths: yes
+
 
 reports:
   junit_reports:
