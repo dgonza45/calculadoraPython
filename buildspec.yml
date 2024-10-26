@@ -32,8 +32,12 @@ phases:
 artifacts:
   files:
     - '**/*'
+    - '!**/.git/**'
+    - '!**/.idea/**'
+    - '!**/__pycache__/**'
     - coverage.xml  # Incluye el archivo de cobertura en los artefactos descargables
-  discard-paths: yes
+  discard-paths: no
+
 
 
 reports:
