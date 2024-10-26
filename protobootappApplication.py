@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from calc import Calculadora
 
 app = Flask(__name__)
