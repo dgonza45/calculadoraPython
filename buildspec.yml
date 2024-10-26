@@ -10,14 +10,9 @@ phases:
       - pip install --upgrade pip
       - pip install -r requirements.txt
 
-  pre_build:
-    commands:
-      - echo "Installing dependencies..."
-      - source venv/bin/activate
-      - pip install -r requirements.txt
-
   build:
     commands:
+      - mkdir -p test-reports
       - echo "Running tests with coverage..."
       - source venv/bin/activate
       - export PYTHONPATH=$PYTHONPATH:$(pwd)
@@ -32,13 +27,7 @@ phases:
 artifacts:
   files:
     - '**/*'
-    - '!**/.git/**'
-    - '!**/.idea/**'
-    - '!**/__pycache__/**'
-    - coverage.xml  # Incluye el archivo de cobertura en los artefactos descargables
   discard-paths: no
-
-
 
 reports:
   junit_reports:
