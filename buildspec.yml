@@ -5,24 +5,24 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
-      - python -m venv venv  # Crea un entorno virtual
-      - source venv/bin/activate  # Activa el entorno virtual
+      - python -m venv venv
+      - source venv/bin/activate
       - pip install --upgrade pip
       - pip install -r requirements.txt
 
   pre_build:
     commands:
       - echo "Installing dependencies..."
-      - source venv/bin/activate  # Activa el entorno virtual en la fase pre_build
+      - source venv/bin/activate
       - pip install -r requirements.txt
 
   build:
     commands:
       - echo "Running tests with coverage..."
-      - source venv/bin/activate  # Activa el entorno virtual en la fase build
-      - coverage run -m pytest tests/
-      - coverage report --fail-under=70
+      - source venv/bin/activate
+      - pytest --junitxml=test-reports/junit-report.xml --cov=.
       - coverage xml -o coverage.xml
+      - coverage report --fail-under=70
 
   post_build:
     commands:
@@ -37,3 +37,6 @@ reports:
   coverage_reports:
     files:
       - coverage.xml
+  junit_reports:
+    files:
+      - test-reports/junit-report.xml

@@ -1,3 +1,5 @@
 Flask
 pytest
 coverage
+pytest
+pytest-cov
