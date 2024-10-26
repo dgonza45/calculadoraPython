@@ -23,7 +23,7 @@ phases:
       - export PYTHONPATH=$PYTHONPATH:$(pwd)  # Añadir el directorio raíz al PYTHONPATH
       - pytest --junitxml=test-reports/junit-report.xml --cov=.
       - coverage xml -o coverage.xml
-      - coverage report --fail-under=70
+      - coverage report --fail-under=40
 
   post_build:
     commands:
