@@ -1,2 +1,3 @@
-web: gunicorn -w 3 -b :8000 protobootappApplication:app
+web: gunicorn -w 1 -b :8000 protobootappApplication:app
+
 
