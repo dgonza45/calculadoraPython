@@ -20,7 +20,7 @@ phases:
     commands:
       - echo "Running tests with coverage..."
       - source venv/bin/activate
-      - export PYTHONPATH=$PYTHONPATH:$(pwd)  # Añadir el directorio raíz al PYTHONPATH
+      - export PYTHONPATH=$PYTHONPATH:$(pwd)
       - pytest --junitxml=test-reports/junit-report.xml --cov=.
       - coverage xml -o coverage.xml
       - coverage report --fail-under=40
@@ -35,9 +35,6 @@ artifacts:
   discard-paths: yes
 
 reports:
-  coverage_reports:
-    files:
-      - coverage.xml
   junit_reports:
     files:
       - test-reports/junit-report.xml
