@@ -2,5 +2,4 @@ Flask
 gunicorn
 pytest
 coverage
-pytest
 pytest-cov
